@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boston House Price Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      font-family: 'Arimo', sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: <img src="pexels-pixabay-358636.jpg">
+      background-size: cover;
+      background-position: center;
+    }
+    .login {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      margin: 20px;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      color: #333333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input[type="text"] {
+      font-family: 'Hind', sans-serif;
+      margin-bottom: 10px;
+      padding: 15px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      transition: border-color 0.3s;
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #777777;
+    }
+    .btn {
+      font-family: 'Open Sans Condensed', sans-serif;
+      background-color: #4caf50;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+    .btn:active {
+      background-color: #397d34;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h1>Boston House Price Prediction</h1>
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="CRIM" placeholder="CRIM" required="required">
+        <input type="text" name="ZN" placeholder="ZN" required="required">
+        <input type="text" name="INDUS" placeholder="INDUS" required="required">
+        <input type="text" name="CHAS" placeholder="CHAS" required="required">
+        <input type="text" name="NOX" placeholder="NOX" required="required">
+        <input type="text" name="RM" placeholder="RM" required="required">
+        <input type="text" name="Age" placeholder="Age" required="required">
+        <input type="text" name="DIS" placeholder="DIS" required="required">
+        <input type="text" name="RAD" placeholder="RAD" required="required">
+        <input type="text" name="TAX" placeholder="TAX" required="required">
+        <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required">
+        <input type="text" name="B" placeholder="B" required="required">
+        <input type="text" name="LSTAT" placeholder="LSTAT" required="required">      
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+  </div>
+  {{prediction_text}}
+</body>
+</html>
+
